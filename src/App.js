@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
 
-function App() {
+// function App () {
+//   const [count, setCount] = useState(() => {
+//     return 10
+//   }) //sets initial state to 10
+
+//   function decrementCount () {
+//     setCount(prevCount => prevCount - 1)
+//   }
+
+//   function incrementCount () {
+//     setCount(prevCount => prevCount + 1)
+//   }
+//   return (
+//     <>
+//       <button onClick={decrementCount}>-</button>
+//       <span>{count}</span>
+//       <button onClick={incrementCount}>+</button>
+//     </>
+//   )
+// }
+
+//functional component with Object
+//
+
+//OR just set separate states (more common)
+//functional component with Object
+function App () {
+  const [count, setCount] = useState(4)
+  const [theme, setTheme] = useState('blue')
+  function decrementCount () {
+    setCount(prevCount => {
+      return prevCount - 1
+    })
+  }
+  function incrementCount () {
+    setCount(prevCount => {
+      return prevCount + 1
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <button onClick={decrementCount}>-</button>
+      <span>
+        {count}
+        {theme}
+      </span>
+      <button onClick={incrementCount}>+</button>
+    </>
+  )
 }
 
-export default App;
+export default App
